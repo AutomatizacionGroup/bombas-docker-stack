@@ -8,8 +8,6 @@ services:
             - nodered-data:/data
         networks:
             - frontend
-        restart_policy:
-            condition: on-failure
 
 networks:
   frontend:
