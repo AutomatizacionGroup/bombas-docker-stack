@@ -4,30 +4,20 @@ services:
         image: nodered/node-red
         ports:
             - 1880:1880
-        environment:
-            FLOWS: "flows.json"
+        env_file:
+            - nodered.env
         volumes:
             - nodered-data:/data
-        networks:
-            - backend
     influxdb: 
         image: influxdb
         ports:
             - 8086:8086
         volumes:
             - influxdb:/var/lib/influxdb
-        networks:
-            - backend
     mosquitto: 
         image: eclipse-mosquitto
         ports:
             - 1883:1883
-        networks:
-            - backend
-
-networks:
-    frontend:
-    backend:
 
 volumes:
     nodered-data:
