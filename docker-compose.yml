@@ -18,6 +18,12 @@ services:
         image: eclipse-mosquitto
         ports:
             - 1883:1883
+    mongodb:
+        image: mongo
+        ports: 
+            - 27017:27017
+        volumes:
+            -mongodb:/data/db
 
 volumes:
     nodered-data:
